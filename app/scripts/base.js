@@ -1,6 +1,6 @@
 (function($) {
 
-	var alchemyKey = "3d3c62a3f4f29c040d0639f7351fb790a002ddf0";
+	var alchemyKey = "fdae1fa9a0bf96edd0a007b8661761c29ca0dd85";
 
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
