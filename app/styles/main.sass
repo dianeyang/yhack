@@ -5,21 +5,16 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png"
 // @import "compass/utilities/general/clearfix"
 
 ::selection
-  color: #00BCB2
-  background-color: #FFFFFF
+    color: #00BCB2
+    background-color: #FFFFFF
 
 body
-  box-sizing: border-box
-  text-align: center
-  font-family: 'Varela Round', arial, sans-serif
-  font-size: 13px
-  color: #444444
-  background: #00BCB2
-
-#main
-  display: table
-  height: 100%
-  width: 100%
+    box-sizing: border-box
+    text-align: center
+    font-family: 'Varela Round', arial, sans-serif
+    font-size: 13px
+    color: #444444
+    background: #00BCB2
 
 // #content
 //   display: table-cell
@@ -27,36 +22,38 @@ body
 //   height: 100%
 //   width: 100%
 
-#about
-  padding-bottom: 20px
-  font-weight: normal
+// #about
+//     padding-bottom: 20px
+//     font-weight: normal
 
-#example-type
-  color: gray
-  font-size: 14px
+// #example-type
+//     color: gray
+//     font-size: 14px
 
 .cover
-  position: fixed
-  height: 100%
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-  background-color: #FFFFFF
-  padding-top: 120px
-  z-index: 999
-  box-shadow: 0 1px 10px rgba(0,0,0,0.2)
+    position: fixed
+    height: 100%
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: url("../images/logo.png") no-repeat rgba(255,255,255,1)
+    background-size: 200px
+    background-position: 15px
+    padding-top: 120px
+    z-index: 999
+    box-shadow: 0 1px 10px rgba(0,0,0,0.2)
 
-// .microphone
-//   // background: url("../images/microphone2.svg") no-repeat center
-//   background-size: contain
-//   height: 60%
+.microphone
+    background: url("../images/microphone2.svg") no-repeat center
+    background-size: contain
+    height: 60%
 
 .cover i
-  font-size: 400px
-  color: #444444
-  &:active
-    padding-top: 10px
+    font-size: 400px
+    color: #444444
+    &:active
+        padding-top: 10px
 
 // .microphone-small
 //   background: url("../images/microphone2.svg") no-repeat top center
@@ -64,102 +61,128 @@ body
 //   height: 60px
 
 .cover i.recording
-  background-color: #F2604F
-  border-radius: 100px
-  color: #FFFFFF
-  width: 50px
-  padding: 5px
+    background-color: #F2604F
+    border-radius: 100px
+    color: #FFFFFF
+    width: 50px
+    padding: 5px
 
 .microphone image
-  max-width: 100%
-  max-height: 100%
+    max-width: 100%
+    max-height: 100%
 
 .cover > h1
-  font-family: 'Varela Round'
-  font-weight: 700
-  font-size: 64px
-  color: #00BCB2
-  padding-top: 30px
+    font-family: 'Varela Round'
+    font-weight: 700
+    font-size: 64px
+    color: #00BCB2
+    padding-top: 30px
 
 #speech-content-elements
-  margin: auto
-  width: 60%
-  min-height: 700px
-  max-width: 800px
-  border: none
-  padding-bottom: 30px
+    margin: auto
+    width: 60%
+    border: none
+    padding-bottom: 30px
 
 #speech-page-content
-  margin-top: 100px
-  width: 100%
-  height: 100%
-  overflow: auto
-  border: none
-  resize: none
-  font-size: 32px
-  font-family: 'Varela Round'
-  line-height: 1.4
-  background-color: #00BCB2
-  color: #FFFFFF
-  outline: none
-  box-shadow: none
+    margin-top: 100px
+    width: 100%
+    height: 100%
+    overflow: auto
+    border: none
+    resize: none
+    font-size: 32px
+    font-family: 'Varela Round'
+    line-height: 1.4
+    background-color: #00BCB2
+    color: #FFFFFF
+    outline: none
+    box-shadow: none
 
-textarea
-  -webkit-appearance: none
-  outline: none !important
-  border: none
+// textarea
+//     -webkit-appearance: none
+//     outline: none !important
+//     border: none
 
-#results
-  font-size: 18px
-  // background: url('../images/loading.gif') no-repeat center
+// #results
+//     font-size: 18px
+//     // background: url('../images/loading.gif') no-repeat center
+
+.colviz
+    position: absolute
+    bottom: 0
+    right: 0
+    top: 0
+
+.rowviz
+    height: 50%
 
 .dataviz
-  padding: 25px
-  height: 320px
-  background-color: #ddd
-  overflow-y: scroll
+    // padding: 25px
+    height: 100%
+    // background-color: #ddd
+    // overflow-y: auto
 
 .one
-  background-color: #FFD571
+    background-color: #FFD571
 
 .two
-  background-color: #a9b6bc
+    background-color: #a9b6bc
 
 .three
-  background-color: #85DD8C
+    background-color: #85DD8C
 
 .four
-  background-color: #FFA576
+    background-color: #FFA576
+
+// .speech-content-mic
+//     width: 25px
+//     height: 25px
+//     cursor: pointer
+//     position: absolute
+//     right: 0
+//     top: 0
+
+// // .speech-mic
+// //   background: url("../images/mic.gif") no-repeat 50% 50%
+// //   background-size: contain
+
+// // .speech-mic-works
+// //   background: url("../images/mic-animate.gif") no-repeat 50% 50%
+// //   background-size: contain
+
+// #speech-page-content
+//     &::-webkit-scrollbar
+//         width: 6px
+//     &::-webkit-scrollbar-track
+//         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+//         border-radius: 10px
+//     &::-webkit-scrollbar-thumb
+//         border-radius: 10px
+//         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
+
+
+
+
+
+// MY STUFF
+
+$footerHeight: 60px
 
 #footer
-  padding-top: 20px
-  font-size: 16px
-  height: 60px
-  background-color: #444444
-  color: #999999
+    position: fixed
+    bottom: 0
+    padding-top: 20px
+    font-size: 16px
+    height: $footerHeight
+    background-color: #444444
+    color: #999999
+    width: 100%
 
-.speech-content-mic
-  width: 25px
-  height: 25px
-  cursor: pointer
-  position: absolute
-  right: 0
-  top: 0
-
-// .speech-mic
-//   background: url("../images/mic.gif") no-repeat 50% 50%
-//   background-size: contain
-
-// .speech-mic-works
-//   background: url("../images/mic-animate.gif") no-repeat 50% 50%
-//   background-size: contain
-
-#speech-page-content
-  &::-webkit-scrollbar
-    width: 6px
-  &::-webkit-scrollbar-track
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
-    border-radius: 10px
-  &::-webkit-scrollbar-thumb
-    border-radius: 10px
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
+#main
+    position: fixed
+    top: 60px
+    bottom: $footerHeight
+    left: 0
+    right: 0
+    overflow-y: auto

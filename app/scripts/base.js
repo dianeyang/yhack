@@ -5,9 +5,11 @@
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
 
-	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, do_something));
+	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
 
-	    function do_something() {
+	    function analysis() {
+
+	    	// List keywords
 	        var jqxhr = $.ajax({
 	        	url: "https://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
 	            jsonp: "jsonp",
@@ -20,8 +22,8 @@
 	                keywordExtractMode: "strict"
 	            },
 	            success: function (data) {
-	            	console.log(data);
-
+	            	// console.log(data);
+	            	$("#results").html("");
 	            	var len = data.keywords.length;
 					for (var i = 0; i < len; i++)
 					{
@@ -30,29 +32,32 @@
 
 	            }
 	        });
+
+
 	    };
 
 	    $('textarea').autosize();
 
-	    $('.cover').click(slide_up);
+	    slide_up();
+	    // $('.cover').click(slide_up);
 
 	    function slide_up() {
 	    	$('.cover').animate({
 	    		height: 60,
 	    		paddingTop: "5px"
-	    	}, 1000);
+	    	}, 10);
 	    	$('.cover > i').animate({
 	    		fontSize: "40px",
 	    		paddingTop: "5px"
-	    	}, 1000);
+	    	}, 10);
 	    	$('.microphone.large').removeClass('large').animate({
 	    		height: "85%",
   				background: "url('../images/microphone2.svg') no-repeat top center",
-	    	}, 1000);
+	    	}, 10);
 	    	$('.cover h1').animate({
 	    		opacity: 0,
 	    		fontSize: "30px"
-	    	}, 800, function() {
+	    	}, 8, function() {
 	    		$('.cover h1').remove();
 	    	});
 	    };
