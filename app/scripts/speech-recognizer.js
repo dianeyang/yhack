@@ -93,7 +93,6 @@
             for (var i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
                     insertAtCaret(textAreaID, event.results[i][0].transcript);
-                    $('body').trigger('autosize.resize');
                 } else {
                     isFinished = false;
                     insertAtCaret(textAreaID, event.results[i][0].transcript + '\u200B');

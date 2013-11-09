@@ -42,7 +42,8 @@
 	    		paddingTop: "5px"
 	    	}, 1000);
 	    	$('.cover > i').animate({
-	    		fontSize: "40px"
+	    		fontSize: "40px",
+	    		paddingTop: "5px"
 	    	}, 1000);
 	    	$('.microphone.large').removeClass('large').animate({
 	    		height: "85%",
