@@ -99,7 +99,7 @@
 				    $(function () { 
 					    $('#chart2').highcharts({
 					        chart: {
-					        	height: 270,
+					        	width: $("#chart2").width(),
 					            type: 'line',
 					            backgroundColor: null,
 					            style: {
@@ -108,10 +108,10 @@
 					            }
 					        },
 					        title: {
-					            text: 'Words Over Time',
+					            text: 'Words over time',
 					            style: {
 					            	fontFamily: 'Varela Round',
-					            	fontSize: '24px',
+					            	fontSize: '16px',
 					            	color: '#FFFFFF'
 					            }
 					        },
@@ -148,7 +148,7 @@
 					            }
 					        },
 					        series: [{
-					            name: 'Time',
+					            name: 'time',
 					            data: wordarray,
 					            color: '#FFFFFF',
 					            style: {
@@ -162,22 +162,8 @@
 
 
 	    function analysis() {
-	    	// List keywords 
-/*	    	var jqxhr2 = $.ajax({
-	    		url: "http://access.alchemyapi.com/calls/text/TextGetLanguage",
-	            jsonp: "jsonp",
-	            dataType: "jsonp",
-	            type: "POST",
-	            data: {
-	            	apikey: alchemyKey,
-	            	text: $('#speech-page-content')[0].textContent,
-	                outputMode: "json"
-	            },
-	            success: function (data) {
-	            	console.log(data);
 
-	            }
-	    }); */
+	    	// List keywords
 	        var jqxhr = $.ajax({
 	        	url: "https://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
 	            jsonp: "jsonp",
@@ -199,9 +185,9 @@
 	            	var temp = new Array(len);
 	            	myData[0] = 1*data.keywords[0].sentiment.score;
 	            	temp[0] = " ";
-	            	$("#results").append($("<div><strong>"+data.keywords[0].text+"</strong> ("+data.keywords[0].relevance+")</div>"));
+	            	// $("#results").append($("<div><strong>"+data.keywords[0].text+"</strong> ("+data.keywords[0].relevance+")</div>"));
 				  	for (var i = 1; i < len; i++) {
-						$("#results").append($("<div><strong>"+data.keywords[i].text+"</strong> ("+data.keywords[i].relevance+")</div>"));
+						// $("#results").append($("<div><strong>"+data.keywords[i].text+"</strong> ("+data.keywords[i].relevance+")</div>"));
 						myData[i] = (1*myData[i-1])+(1*data.keywords[i].sentiment.score);
 						temp[i] = " ";
 					}
@@ -214,13 +200,14 @@
 					            style: {
 					            	fontFamily: 'Varela Round',
 					            	color: '#FFFFFF'
-					            }
+					            },
+					            height: $("#highcharts").height()
 					        },
 					        title: {
-					            text: 'Mood Over Time',
+					            text: 'Mood vs. text',
 					            style: {
 					            	fontFamily: 'Varela Round',
-					            	fontSize: '24px',
+					            	fontSize: '16px',
 					            	color: '#FFFFFF'
 					            }
 					        },
@@ -257,7 +244,7 @@
 					            }
 					        },
 					        series: [{
-					            name: 'Time',
+					            name: 'Text',
 					            data: myData,
 					            color: '#FFFFFF',
 					            style: {
@@ -372,9 +359,11 @@
 				    
 				  var fill = d3.scale.category20();
 				  
-				  $("#cloud").html("");
+				  var cloud = $("#cloud");
+
+				  cloud.html("");
 				  
-				  d3.layout.cloud().size([400, 400])
+				  d3.layout.cloud().size([cloud.width(), cloud.height()])
 				      .words((data.keywords).map(function(d) {
 				        return {text: d.text, size: 50 * (d.relevance * (Math.sqrt(Math.sqrt(d.relevance))))};
 				      }))
@@ -387,10 +376,10 @@
 				      
 				  function draw(words) {
 				    d3.select("#cloud").append("svg")
-				        .attr("width", 600)
-				        .attr("height", 600)
+				        .attr("width", cloud.width())
+				        .attr("height", cloud.height())
 				      .append("g")
-				        .attr("transform", "translate(200,200)")
+				        .attr("transform", "translate(150,120)")
 				      .selectAll("text")
 				        .data(words)
 				      .enter().append("text")
@@ -420,7 +409,7 @@
 	    	duration =  min + ':' + sec;
 	    	wpm = stats[2].toFixed(2);
 	    	$('#vitals').html('');
-	    	elt = '<div><h2>stats</h2>language: ' + language + '<br/>word count: ' + word_count + '<br/>duration: ' + duration + '</br>words per minute: ' + wpm + '</br/></div>';
+	    	elt = '<strong>Word count:</strong> ' + word_count + '<br/><strong>Duration:</strong> ' + duration + '<br/><strong>Words per minute:</strong> ' + wpm + '<br/>';
 	    	$('#vitals').append(elt);
 	    };
 
@@ -481,3 +470,57 @@
 	});
 
 })(jQuery);
+
+function handlepaste (elem, e) {
+    var savedcontent = elem.innerHTML;
+    if (e && e.clipboardData && e.clipboardData.getData) {// Webkit - get data from clipboard, put into editdiv, cleanup, then cancel event
+        if (/text\/html/.test(e.clipboardData.types)) {
+            elem.innerHTML = e.clipboardData.getData('text/html');
+        }
+        else if (/text\/plain/.test(e.clipboardData.types)) {
+            elem.innerHTML = e.clipboardData.getData('text/plain');
+        }
+        else {
+            elem.innerHTML = "";
+        }
+        waitforpastedata(elem, savedcontent);
+        if (e.preventDefault) {
+                e.stopPropagation();
+                e.preventDefault();
+        }
+        return false;
+    }
+    else {// Everything else - empty editdiv and allow browser to paste content into it, then cleanup
+        elem.innerHTML = "";
+        waitforpastedata(elem, savedcontent);
+        return true;
+    }
+}
+
+function waitforpastedata (elem, savedcontent) {
+    if (elem.childNodes && elem.childNodes.length > 0) {
+        processpaste(elem, savedcontent);
+    }
+    else {
+        that = {
+            e: elem,
+            s: savedcontent
+        }
+        that.callself = function () {
+            waitforpastedata(that.e, that.s)
+        }
+        setTimeout(that.callself,20);
+    }
+}
+
+function processpaste (elem, savedcontent) {
+    pasteddata = elem.innerHTML;
+    //^^Alternatively loop through dom (elem.childNodes or elem.getElementsByTagName) here
+
+    elem.innerHTML = elem.textContent;
+
+    analysis();
+
+    // Do whatever with gathered data;
+    //alert(elem.textContent);
+}
