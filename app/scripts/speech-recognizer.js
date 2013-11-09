@@ -14,7 +14,8 @@
         var textArea = $('#speech-page-content');
         var textAreaID = 'speech-page-content';
 
-        $('.not-recording').click(function(){
+        $('.cover > i').click(function(){
+            console.log('clicked');
             startRecognition();
         });
 
@@ -24,12 +25,14 @@
 
         var startRecognition = function() {
             //$('.speech-content-mic').removeClass('speech-mic').addClass('speech-mic-works');
-            $('.cover > i').removeClass('not-recording').addClass('recording')
+            console.log('starting recognition')
+            $('.cover > i').toggleClass('recording');
             textArea.focus();
             recognition.start();
         };
 
         recognition.onresult = function (event) {
+            console.log('result')
             var pos = textArea.getCursorPosition() - interimResult.length;
             textArea.val(textArea.val().replace(interimResult, ''));
             interimResult = '';
