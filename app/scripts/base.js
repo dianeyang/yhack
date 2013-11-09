@@ -428,7 +428,10 @@
 	    	duration =  min + ':' + sec;
 	    	wpm = stats[2].toFixed(2);
 	    	$('#vitals').html('');
-	    	elt = '<strong>Word count:</strong> ' + word_count + '<br/><strong>Duration:</strong> ' + duration + '<br/><strong>Words per minute:</strong> ' + wpm + '<br/>';
+	    	elt = '<strong>Word count:</strong> ' + word_count;
+	    	if (!isNaN(word_count)) {
+	    		elt = elt + '<br/><strong>Duration:</strong> ' + duration + '<br/><strong>Words per minute:</strong> ' + wpm + '<br/>';
+	    	}
 	    	$('#vitals').append(elt);
 	    };
 
