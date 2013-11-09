@@ -10,6 +10,8 @@
         recognition.continuous = true;
         recognition.interimResults = true;
 
+        var pulse_recording;
+
         var interimResult = '';
         var transcript = $('#speech-page-content');
         var textAreaID = 'speech-page-content';
@@ -26,6 +28,10 @@
             $('.cover i.fa-microphone').toggleClass('recording');
             transcript.focus();
             recognition.start();
+            pulse_recording = setInterval(function(){
+                $('i.fa-microphone').css({opacity: 0.8}, 1000);
+                $('i.fa-microphone').css({opacity: 1}, 1000);
+            }, 2000);
         };
 
         recognition.onresult = function (event) {
@@ -48,6 +54,7 @@
 
         recognition.onend = function() {
             $('.cover i.fa-microphone').toggleClass('recording');
+            clearInterval(pulse_recording);
         };
     });
 })(jQuery);
