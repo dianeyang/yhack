@@ -1,12 +1,35 @@
 (function($) {
 
+	var alchemyKey = "e2490766ea3f66849fadc9a7b8d8b51af58d0a93";
+
 	$(document).ready(function() {
 		$('.microphone, .cover > h1').delay(500).fadeIn(1000);
 
 	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, do_something));
 
 	    function do_something() {
-	        console.log('doing something');
+	        var jqxhr = $.ajax({
+	        	url: "https://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
+	            jsonp: "jsonp",
+	            dataType: "jsonp",
+	            type: "POST",
+	            data: {
+	                apikey: alchemyKey,
+	                text: $('#speech-page-content').val(),
+	                outputMode: "json",
+	                keywordExtractMode: "strict"
+	            },
+	            success: function (data) {
+	            	console.log(data);
+
+	            	var len = data.keywords.length;
+					for (var i = 0; i < len; i++)
+					{
+						$("#results").append($("<div><strong>"+data.keywords[i].text+"</strong> ("+data.keywords[i].relevance+")</div>"));
+					}
+
+	            }
+	        });
 	    };
 
 	    $('.cover').click(slide_up);
