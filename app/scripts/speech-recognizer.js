@@ -14,7 +14,7 @@
         var textArea = $('#speech-page-content');
         var textAreaID = 'speech-page-content';
 
-        $('.not-recording').click(function(){
+        $('i.fa-microphone:not(.recording)').click(function(){
             startRecognition();
         });
 
@@ -23,8 +23,7 @@
         });
 
         var startRecognition = function() {
-            //$('.speech-content-mic').removeClass('speech-mic').addClass('speech-mic-works');
-            $('.microphone').removeClass('not-recording').addClass('recording')
+            $('.cover i.fa-microphone').toggleClass('recording');
             textArea.focus();
             recognition.start();
         };
@@ -46,8 +45,7 @@
         };
 
         recognition.onend = function() {
-            //$('.speech-content-mic').removeClass('speech-mic-works').addClass('speech-mic');
-            $('.microphone').removeClass('recording').addClass('not-recording')
+            $('.cover i.fa-microphone').toggleClass('recording');
         };
     });
 })(jQuery);
