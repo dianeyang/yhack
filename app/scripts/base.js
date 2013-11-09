@@ -1,9 +1,11 @@
 (function($) {
 
-	var alchemyKey = "c56875058078c4fb463c3f565ca3db1cdde1fc50";
+	var alchemyKey = "3d3c62a3f4f29c040d0639f7351fb790a002ddf0";
 
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
+
+		var start_time;
 
 		// FREQUENCY VIEW
 		function gotStream(stream)
@@ -48,6 +50,8 @@
 		        analyser.connect(javascriptNode);
 
 		        sourceNode.connect(context.destination);
+
+		        start_time = new Date().getTime();
 
 		    }
 
@@ -96,7 +100,7 @@
 	            type: "POST",
 	            data: {
 	                apikey: alchemyKey,
-	                text: $('#speech-page-content')[0].textContent,
+	                text: $('#speech-page-content')[0].innerText.trim(),
 	                outputMode: "json",
 	                keywordExtractMode: "strict",
 	                sentiment: "1"
@@ -116,6 +120,8 @@
 						myData[i] = (1*myData[i-1])+(1*data.keywords[i].sentiment.score);
 						temp[i] = " ";
 					}
+
+					render_vitals();
 				    
 				    $(function () { 
 					    $('#highcharts').highcharts({
@@ -131,6 +137,7 @@
 					            text: 'Mood Over Time',
 					            style: {
 					            	fontFamily: 'Varela Round',
+					            	fontSize: '24px',
 					            	color: '#FFFFFF'
 					            }
 					        },
@@ -322,6 +329,42 @@
 
 	    };
 
+	    function render_vitals() {
+	    	stats = get_vitals();
+	    	word_count = stats[0];
+	    	min = String(Math.floor(stats[1] / (1000 * 60)));
+	    	sec = Math.floor(stats[1] / (1000)) % 60 < 10 ? '0' + String(Math.floor(stats[1] / (1000)) % 60) : String(Math.floor(stats[1] / (1000)) % 60);
+	    	duration =  min + ':' + sec;
+	    	wpm = stats[2].toFixed(2);
+	    	$('#vitals').html('');
+	    	elt = '<div><h2>stats</h2>word count: ' + word_count + '<br/>duration: ' + duration + '</br>words per minute: ' + wpm + '</br/></div>';
+	    	$('#vitals').append(elt);
+	    };
+
+
+	    function get_vitals() {
+	    	word_count = get_word_count();
+	    	duration = get_duration();
+	    	wpm = word_count / (duration / (1000 * 60));
+	    	console.log(word_count);
+	    	console.log(duration);
+	    	console.log(wpm);
+	    	return [word_count, duration, wpm];
+	    };
+
+	    function get_word_count() {
+	    	return $('#speech-page-content')[0].innerText.trim().split(/[\s\n]/g).length;
+	    };
+
+	    function get_duration() {
+	    	curr_time = new Date().getTime();
+	    	diff = curr_time - start_time;
+	    	return diff;
+	    };
+
+	    function highlight_keywords() {
+	    	//T0D0
+	    }
 
 	    slide_up();
 	    // $('.cover').click(slide_up);
