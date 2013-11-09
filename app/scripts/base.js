@@ -5,6 +5,8 @@
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
 
+		$('.cover > i')
+
 	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, do_something));
 
 	    function do_something() {
