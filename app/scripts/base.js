@@ -90,6 +90,76 @@
 		// END FREQUENCY VIEW
 
 	    $('#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
+				
+				var blanks = new Array;
+				var wordarray = new Array;
+				setInterval(function(){
+					blanks.push(" ");
+					wordarray.push(get_word_count());
+				    $(function () { 
+					    $('#chart2').highcharts({
+					        chart: {
+					        	height: 270,
+					            type: 'line',
+					            backgroundColor: null,
+					            style: {
+					            	fontFamily: 'Varela Round',
+					            	color: '#FFFFFF'
+					            }
+					        },
+					        title: {
+					            text: 'Words Over Time',
+					            style: {
+					            	fontFamily: 'Varela Round',
+					            	fontSize: '24px',
+					            	color: '#FFFFFF'
+					            }
+					        },
+					        xAxis: {
+					            categories: blanks,
+					            lineColor: '#FFFFFF',
+					            tickColor: '#FFFFFF',
+					            style: {
+					            	fontFamily: 'Varela Round',
+					            	color: '#FFFFFF'
+					            },
+					            labels: {
+							        style: {
+							            color: '#FFFFFF',
+							            fontFamily: 'Varela Round'
+							        }
+							    },
+					        },
+					        yAxis: {
+					        	lineColor: '#FFFFFF',
+					        	tickColor: '#FFFFFF',
+					            title: {
+					                text: 'Words',
+					                style: {
+						            	fontFamily: 'Varela Round',
+						            	color: '#FFFFFF'
+						            }
+						        },
+						        labels: {
+						        	style: {
+					            		fontFamily: 'Varela Round',
+					            		color: '#FFFFFF'
+					            	}
+					            }
+					        },
+					        series: [{
+					            name: 'Time',
+					            data: wordarray,
+					            color: '#FFFFFF',
+					            style: {
+					            	color: '#FFFFFF',
+					            	fontFamily: 'Varela Round'
+					            }
+					        }],
+					    });
+					});
+				},4000);
+
 
 	    function analysis() {
 	    	// List keywords 
