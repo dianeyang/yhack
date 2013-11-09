@@ -44,40 +44,34 @@
         <!-- endbuild -->
 
         <div id="main" class="container-fluid">
-            <div class="row">
                 <div class="cover col-md-12">
                     <i class="fa fa-microphone" style="display: none;"></i>
                     <h1 style="display: none;">click to record</h1>
                     <canvas id="frequency" width="64" height="45"></canvas>
                 </div>
-            </div>
 
             <div class="row">
-                <div id="speech-content-elements" class="col-md-5">
+                <div id="speech-content-elements" class="col-md-4">
                     <div id="speech-page-content" name="pageContent" contenteditable="true"></div>
                 </div>
-
-                <div class="col-md-7 colviz">
-
-                    <div class="row rowviz">
-                        <div class="col-md-6 dataviz one">
+                <div class="col-md-8">
+                    <div class="row">
+                    <div class="col-md-6 dataviz one">
+                        <div id="cloud">
+                        </div>
+                    </div>
+                        <div class="col-md-6 dataviz two">
                             <div id="results">
                             </div>
                         </div>
-                        <div class="col-md-6 dataviz two">
-                            <div id="cloud">
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="row rowviz">
+                    <div class="row">
                         <div class="col-md-6 dataviz three">
                             <div id="highcharts">
                             </div>
                         </div>
                         <div class="col-md-6 dataviz four"></div>
                     </div>
-
                 </div>
 
             </div>
