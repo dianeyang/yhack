@@ -7,6 +7,7 @@ Client = require('request-json').JsonClient
 port = process.env.PORT ? 9001
 
 app = express()
+app.use express.static(__dirname + "/dist")
 
 server = http.createServer(app)
 
