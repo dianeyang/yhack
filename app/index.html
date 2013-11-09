@@ -20,12 +20,18 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <script src="scripts/Chart.js"></script>
+        <script src="scripts/d3.js"></script>
+		<script src="scripts/d3.layout.cloud.js"></script>
         <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/jquery.ba-throttle-debounce.js"></script>
         <script type="text/javascript" src="scripts/jquery.autosize.min.js"></script>
         <script type="text/javascript" src="scripts/textarea-helper.js"></script>
         <script type="text/javascript" src="scripts/speech-recognizer.js"></script>
         <script type="text/javascript" src="scripts/base.js"></script>
+        <script src="scripts/highcharts.js"></script>
+
     </head>
     <body>
 
@@ -37,26 +43,46 @@
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 
-        <div id="main" class="container-fluid">
-            <div id="content">
-                <div class="cover">
-                    <i class="fa fa-microphone not-recording" style="display: none;"></i>
-                    <!-- <div class="microphone large not-recording" style="display: none;">
-                    </div> -->
-                    <div class="microphone-red" style="display: none;">
-                    </div>
-                    <h1 style="display: none;">click to record</h1>
+        <div id="main" class="container-fluid">  
+                <div class="cover col-md-12">
+                    <i class="fa fa-microphone"></i>
+                    <canvas id="frequency" width="64" height="45"></canvas>
                 </div>
 
-                <div id="speech-content-elements">
-                    <textarea id="speech-page-content" name="pageContent"></textarea>
-                    <div class="speech-content-mic speech-mic"/>
+            <div class="row rowmain">
+                <div id="speech-content-elements" class="col-md-5">
+                    <div id="speech-page-content" name="pageContent" contenteditable="true"></div>
                 </div>
-                
-                <div id="results">
+                <div class="col-md-7">
+                    <div class="row rowviz">
+                        <div class="col-md-7 dataviz one">
+                            <div id="cloud">
+                            </div>
+                        </div>
+                        <div class="col-md-5 dataviz two">
+                            <div id="results">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rowviz">
+                        <div class="col-md-5 dataviz four">
+                            <div id="vitals"></div>
+                            <div id="language">
+                            </div>
+                        </div>
+                        <div class="col-md-7 dataviz three">
+                            <div id="highcharts">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="footer" class="row">
+                <div class="col-md-12">
+                    made by julian salazar, diane yang, colin lu, and julian guy
                 </div>
             </div>
         </div>
-
-</body>
+    </body>
 </html>
