@@ -135,20 +135,13 @@
 					    $('#chart2').highcharts({
 					        chart: {
 					        	width: $("#chart2").width(),
-					            type: 'area',
+					            type: 'line',
 					            backgroundColor: null,
 					            style: {
 					            	fontFamily: 'Varela Round',
 					            	color: '#FFFFFF'
 					            }
 					        },
-					        plotOptions: {
-				                area: {
-				                    marker: {
-				                        enabled: false
-				                    }
-				                }
-				            },
 					        title: {
 					            text: 'Words over time',
 					            style: {
@@ -220,15 +213,8 @@
 				    
 				    $(function () { 
 					    $('#highcharts').highcharts({
-					    	plotOptions: {
-				                area: {
-				                    marker: {
-				                        enabled: false
-				                    }
-				                }
-				            },
 					        chart: {
-					            type: 'area',
+					            type: 'line',
 					            backgroundColor: null,
 					            style: {
 					            	fontFamily: 'Varela Round',
@@ -443,7 +429,7 @@
 	    	wpm = stats[2].toFixed(2);
 	    	$('#vitals').html('');
 	    	elt = '<strong>Word count:</strong> ' + word_count;
-	    	if (!isNaN(word_count)) {
+	    	if (!isNaN(duration)) {
 	    		elt = elt + '<br/><strong>Duration:</strong> ' + duration + '<br/><strong>Words per minute:</strong> ' + wpm + '<br/>';
 	    	}
 	    	$('#vitals').append(elt);
