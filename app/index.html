@@ -45,17 +45,16 @@
 
         <div id="main" class="container-fluid">
                 <div class="cover col-md-12">
-                    <i class="fa fa-microphone" style="display: none;"></i>
-                    <h1 style="display: none;">click to record</h1>
+                    <i class="fa fa-microphone"></i>
                     <canvas id="frequency" width="64" height="45"></canvas>
                 </div>
 
-            <div class="row">
+            <div class="row rowmain">
                 <div id="speech-content-elements" class="col-md-5">
                     <div id="speech-page-content" name="pageContent" contenteditable="true"></div>
                 </div>
                 <div class="col-md-7">
-                    <div class="row">
+                    <div class="row rowviz">
                         <div class="col-md-7 dataviz one">
                             <div id="cloud">
                             </div>
@@ -65,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row rowviz">
                         <div class="col-md-5 dataviz four">
                             <div id="vitals"></div>
                             <div id="language">

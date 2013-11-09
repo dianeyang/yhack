@@ -122,8 +122,7 @@
 	            },
 	            success: function (data) {
 	            	console.log(data);
-	            	$("#language").html("");
-	            	$("#language").append($("<div><strong>"+data.language+"</strong></div>"));
+	            	render_vitals(data.language);
 	            	var len = data.keywords.length;
 	            	$("#results").html("");
 	            	var myData = new Array;
@@ -136,8 +135,6 @@
 						myData[i] = (1*myData[i-1])+(1*data.keywords[i].sentiment.score);
 						temp[i] = " ";
 					}
-
-					render_vitals();
 				    
 				    $(function () { 
 					    $('#highcharts').highcharts({
@@ -345,7 +342,7 @@
 
 	    };
 
-	    function render_vitals() {
+	    function render_vitals(language) {
 	    	stats = get_vitals();
 	    	word_count = stats[0];
 	    	min = String(Math.floor(stats[1] / (1000 * 60)));
@@ -353,7 +350,7 @@
 	    	duration =  min + ':' + sec;
 	    	wpm = stats[2].toFixed(2);
 	    	$('#vitals').html('');
-	    	elt = '<div><h2>stats</h2>word count: ' + word_count + '<br/>duration: ' + duration + '</br>words per minute: ' + wpm + '</br/></div>';
+	    	elt = '<div><h2>stats</h2>language: ' + language + '<br/>word count: ' + word_count + '<br/>duration: ' + duration + '</br>words per minute: ' + wpm + '</br/></div>';
 	    	$('#vitals').append(elt);
 	    };
 
@@ -382,29 +379,35 @@
 	    	//T0D0
 	    }
 
-	    slide_up();
+	    //slide_up();
+	 //    function set_viz_height() {
+		// 	height = $(window).height() - $('.cover').height() - $('#footer').height();
+		// 	$('.dataviz').animate({height:height}, 500);
+		// };
+		// $.delay(800);
+		// set_viz_height();
 	    // $('.cover').click(slide_up);
 
-	    function slide_up() {
-	    	$('.cover').animate({
-	    		height: 60,
-	    		paddingTop: "5px"
-	    	}, 10);
-	    	$('.cover > i').animate({
-	    		fontSize: "40px",
-	    		paddingTop: "5px"
-	    	}, 10);
-	    	$('.microphone.large').removeClass('large').animate({
-	    		height: "85%",
-  				background: "url('../images/microphone2.svg') no-repeat top center",
-	    	}, 10);
-	    	$('.cover h1').animate({
-	    		opacity: 0,
-	    		fontSize: "30px"
-	    	}, 8, function() {
-	    		$('.cover h1').remove();
-	    	});
-	    };
+	    // function slide_up() {
+	    // 	$('.cover').animate({
+	    // 		height: 60,
+	    // 		paddingTop: "5px"
+	    // 	}, 10);
+	    // 	$('.cover > i').animate({
+	    // 		fontSize: "40px",
+	    // 		paddingTop: "5px"
+	    // 	}, 10);
+	    // 	$('.microphone.large').removeClass('large').animate({
+	    // 		height: "85%",
+  			// 	background: "url('../images/microphone2.svg') no-repeat top center",
+	    // 	}, 10);
+	    // 	$('.cover h1').animate({
+	    // 		opacity: 0,
+	    // 		fontSize: "30px"
+	    // 	}, 8, function() {
+	    // 		$('.cover h1').remove();
+	    // 	});
+	    // };
 	});
 
 })(jQuery);
