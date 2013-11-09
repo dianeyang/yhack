@@ -33,7 +33,7 @@ body
 div#instructions
     color: rgba(0,0,0,0.3)
     text-shadow: 1px 1px rgba(255, 255, 255, 0.2)
-    padding: 40px 80px
+    // padding: 40px 80px
     font-size: 48px
 
 div#instructions p
@@ -51,7 +51,7 @@ div#instructions p
     background-position: 15px
     padding-top: 5px
     z-index: 999
-    box-shadow: 0 1px 10px rgba(0,0,0,0.2)
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25)
 
 #frequency
     position: absolute
@@ -66,6 +66,7 @@ div#instructions p
 .cover i
     font-size: 40px
     color: #444444
+    padding-top: 5px
     &:active
         padding-top: 10px
 
@@ -95,9 +96,11 @@ div#instructions p
     padding-top: 30px
 
 #speech-content-elements
-    margin: auto
     border: none
-    padding-bottom: 30px
+    position: absolute
+    top: 0
+    bottom: 0
+    overflow-y: auto
 
 #speech-page-content
     margin-top: 20px
@@ -113,6 +116,12 @@ div#instructions p
     outline: none
     box-shadow: none
     text-shadow: 1px 1px rgba(0,0,0,0.2)
+    padding: 40px 80px
+    background-image: url('../images/arrow4.png')
+    background-repeat: no-repeat
+    background-position: top right
+    background-size: 110px 110px
+
 
 // textarea
 //     -webkit-appearance: none
@@ -133,17 +142,18 @@ div#instructions p
     height: 50%
 
 .dataviz
+    height: 100%
     // padding: 25px
-    height: 400px
+    // min-height: 400px
     // background-color: #ddd
     // overflow-y: auto
 
 .one
     background-color: #FFD571
+    padding-top: 30px
 
 .two
     background-color: #a9b6bc
-    padding-top: 40px
 
 .three
     background-color: #85DD8C

@@ -52,33 +52,31 @@
 
             <div class="row rowmain">
                 <div id="speech-content-elements" class="col-md-5">
-                    <div id="speech-page-content" name="pageContent" contenteditable="true">
+
+                    <div id="speech-page-content" name="pageContent" contenteditable="true" onpaste='handlepaste(this, event)'>
                         <div id="instructions">
                             <p>click the microphone to record</p>
-                            <p>or, enter text to begin</p>
+                            <p>or, type here begin</p>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-md-7">
+
+                <div class="col-md-7 colviz">
                     <div class="row rowviz">
-                        <div class="col-md-7 dataviz one">
-                            <div id="cloud">
+                        <div class="col-md-5 dataviz one">
+                            <div id="vitals">
                             </div>
-                        </div>
-                        <div class="col-md-5 dataviz two">
-                            <div id="results">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row rowviz">
-                        <div class="col-md-5 dataviz four">
-                            <div id="vitals"></div>
                             <div id="language">
                             </div>
                         </div>
-                        <div class="col-md-7 dataviz three">
-                            <div id="highcharts">
-                            </div>
+                        <div id="highcharts" class="col-md-7 dataviz two">
+                        </div>
+                    </div>
+                    <div class="row rowviz">
+                        <div id="chart2" class="col-md-7 dataviz four">
+                        </div>
+                        <div id="cloud" class="col-md-5 dataviz three">
                         </div>
                     </div>
                 </div>
