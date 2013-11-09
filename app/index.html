@@ -19,11 +19,14 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <script src="scripts/d3.js"></script>
+		<script src="scripts/d3.layout.cloud.js"></script>
         <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/jquery.ba-throttle-debounce.js"></script>
         <script type="text/javascript" src="scripts/textarea-helper.js"></script>
         <script type="text/javascript" src="scripts/speech-recognizer.js"></script>
         <script type="text/javascript" src="scripts/base.js"></script>
+
     </head>
     <body>
         <div class="container-fluid">
@@ -49,7 +52,13 @@
                     <div class="speech-content-mic speech-mic"/>
                 </div>
 
+                <div id="sentiment">
+                </div>
+                
                 <div id="results">
+                </div>
+                
+                <div id="cloud">
                 </div>
             </div>
         </div>
