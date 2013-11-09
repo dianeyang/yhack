@@ -19,11 +19,11 @@ body
   height: 100%
   width: 100%
 
-#content
-  display: table-cell
-  vertical-align: middle
-  height: 100%
-  width: 100%
+// #content
+//   display: table-cell
+//   vertical-align: middle
+//   height: 100%
+//   width: 100%
 
 #about
   padding-bottom: 20px
@@ -34,13 +34,15 @@ body
   font-size: 14px
 
 .cover
-  position: absolute
+  position: fixed
+  height: 100%
   top: 0
   bottom: 0
   left: 0
   right: 0
   background-color: #FFFFFF
   padding-top: 120px
+  z-index: 999
 
 // .microphone
 //   // background: url("../images/microphone2.svg") no-repeat center
@@ -108,6 +110,22 @@ textarea
 #results
   // background: url('../images/loading.gif') no-repeat center
   height: 300px
+
+.dataviz
+  min-height: 260px
+  background-color: #ddd
+
+.one
+  background-color: #ffcc53
+
+.two
+  background-color: rgb(209, 194, 191)
+
+.three
+  background-color: rgb(169, 182, 188)
+
+.four
+  background-color: #68c39f
 
 .speech-content-mic
   width: 25px
