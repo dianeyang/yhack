@@ -284,7 +284,7 @@
 				  
 				  $("#cloud").html("");
 				  
-				  d3.layout.cloud().size([600, 600])
+				  d3.layout.cloud().size([400, 400])
 				      .words((data.keywords).map(function(d) {
 				        return {text: d.text, size: 50 * (d.relevance * (Math.sqrt(Math.sqrt(d.relevance))))};
 				      }))
@@ -300,7 +300,7 @@
 				        .attr("width", 600)
 				        .attr("height", 600)
 				      .append("g")
-				        .attr("transform", "translate(300,300)")
+				        .attr("transform", "translate(200,200)")
 				      .selectAll("text")
 				        .data(words)
 				      .enter().append("text")
