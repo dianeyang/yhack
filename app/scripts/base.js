@@ -92,7 +92,22 @@
 	    $('#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
 
 	    function analysis() {
-	    	// List keywords
+	    	// List keywords 
+/*	    	var jqxhr2 = $.ajax({
+	    		url: "http://access.alchemyapi.com/calls/text/TextGetLanguage",
+	            jsonp: "jsonp",
+	            dataType: "jsonp",
+	            type: "POST",
+	            data: {
+	            	apikey: alchemyKey,
+	            	text: $('#speech-page-content')[0].textContent,
+	                outputMode: "json"
+	            },
+	            success: function (data) {
+	            	console.log(data);
+
+	            }
+	    }); */
 	        var jqxhr = $.ajax({
 	        	url: "https://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
 	            jsonp: "jsonp",
@@ -107,7 +122,8 @@
 	            },
 	            success: function (data) {
 	            	console.log(data);
-	            	$("#results").html("");
+	            	$("#language").html("");
+	            	$("#language").append($("<div><strong>"+data.language+"</strong></div>"));
 	            	var len = data.keywords.length;
 	            	$("#results").html("");
 	            	var myData = new Array;
