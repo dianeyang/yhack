@@ -16,6 +16,9 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/textarea-helper.js"></script>
+        <script type="text/javascript" src="scripts/speech-recognizer.js"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -28,6 +31,17 @@
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
+
+        <div id="main">
+            <div id="content">
+                <h1 id="about">Web Speech Example</h1>
+                <div id="example-type">textarea with JavaScript Web Speech API</div>
+                <div id="speech-content-elements">
+                    <textarea id="speech-page-content" name="pageContent"></textarea>
+                    <div class="speech-content-mic speech-mic"/>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>
