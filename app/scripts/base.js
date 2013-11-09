@@ -5,11 +5,7 @@
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
 
-	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, do_something));
-	   
-	    function do_something() {}
-	        
-				// FREQUENCY VIEW
+		// FREQUENCY VIEW
 		function gotStream(stream)
 		{
 		    // create the audio context (chrome only for now)
@@ -89,7 +85,7 @@
 		navigator.getUserMedia({audio:true}, gotStream);
 		// END FREQUENCY VIEW
 
-	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
+	    $('#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
 
 	    function analysis() {
 	    	// List keywords
@@ -100,7 +96,7 @@
 	            type: "POST",
 	            data: {
 	                apikey: alchemyKey,
-	                text: $('#speech-page-content').val(),
+	                text: $('#speech-page-content')[0].textContent,
 	                outputMode: "json",
 	                keywordExtractMode: "strict",
 	                sentiment: "1"
@@ -122,7 +118,7 @@
 					}
 				    
 				    $(function () { 
-					    $('#container').highcharts({
+					    $('#highcharts').highcharts({
 					        chart: {
 					            type: 'line'
 					        },
@@ -288,7 +284,6 @@
 
 	    };
 
-	    // $('textarea').autosize();
 
 	    slide_up();
 	    // $('.cover').click(slide_up);
