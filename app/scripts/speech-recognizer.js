@@ -14,16 +14,17 @@
         var textArea = $('#speech-page-content');
         var textAreaID = 'speech-page-content';
 
-        $('.speech-mic').click(function(){
+        $('.not-recording').click(function(){
             startRecognition();
         });
 
-        $('.speech-mic-works').click(function(){
+        $('.recording').click(function(){
             recognition.stop();
         });
 
         var startRecognition = function() {
-            $('.speech-content-mic').removeClass('speech-mic').addClass('speech-mic-works');
+            //$('.speech-content-mic').removeClass('speech-mic').addClass('speech-mic-works');
+            $('.microphone').removeClass('not-recording').addClass('recording')
             textArea.focus();
             recognition.start();
         };
@@ -45,7 +46,8 @@
         };
 
         recognition.onend = function() {
-            $('.speech-content-mic').removeClass('speech-mic-works').addClass('speech-mic');
+            //$('.speech-content-mic').removeClass('speech-mic-works').addClass('speech-mic');
+            $('.microphone').removeClass('recording').addClass('not-recording')
         };
     });
 })(jQuery);

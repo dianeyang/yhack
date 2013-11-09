@@ -8,6 +8,7 @@ body
   text-align: center
   font-family: 'Open Sans', arial, sans-serif
   font-size: 13px
+  background: #00BCB2
 
 #main
   display: table
@@ -28,16 +29,36 @@ body
   color: gray
   font-size: 14px
 
+.cover
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: #FFFFFF
+  padding-top: 100px
+
+.microphone
+  background: url("../images/microphone2.svg") no-repeat center
+  background-size: contain
+  height: 450px
+
+.cover > h1
+  font-family: 'Open Sans'
+  font-weight: 700
+  font-size: 60px
+  color: #00BCB2
+  padding-top: 20px
+
 #speech-content-elements
-  position: relative
   margin: auto
   width: 60%
   height: 60%
-  max-height: 300px
   max-width: 800px
-  border: solid 1px #ccc
+  border: none
 
 #speech-page-content
+  margin-top: 100px
   width: 100%
   height: 100%
   overflow: auto
@@ -56,13 +77,13 @@ body
   right: 0
   top: 0
 
-.speech-mic
-  background: url("../images/mic.gif") no-repeat 50% 50%
-  background-size: contain
+// .speech-mic
+//   background: url("../images/mic.gif") no-repeat 50% 50%
+//   background-size: contain
 
-.speech-mic-works
-  background: url("../images/mic-animate.gif") no-repeat 50% 50%
-  background-size: contain
+// .speech-mic-works
+//   background: url("../images/mic-animate.gif") no-repeat 50% 50%
+//   background-size: contain
 
 #speech-page-content
   &::-webkit-scrollbar

@@ -11,6 +11,9 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css({.tmp,app}) styles/main.css -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
@@ -36,8 +39,11 @@
 
         <div id="main">
             <div id="content">
-                <h1 id="about">Web Speech Example</h1>
-                <div id="example-type">textarea with JavaScript Web Speech API</div>
+                <div class="cover">
+                    <div class="microphone not-recording" style="display: none;"></div>
+                    <h1 style="display: none;">talk to me</h1>
+                </div>
+
                 <div id="speech-content-elements">
                     <textarea id="speech-page-content" name="pageContent"></textarea>
                     <div class="speech-content-mic speech-mic"/>
