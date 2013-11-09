@@ -1,0 +1,2 @@
+#!/bin/bash
+(coffee --compile --watch ./heroku/server.coffee &); cd heroku; nodemon server.js
