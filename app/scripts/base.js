@@ -100,13 +100,20 @@
 					    $('#chart2').highcharts({
 					        chart: {
 					        	width: $("#chart2").width(),
-					            type: 'line',
+					            type: 'area',
 					            backgroundColor: null,
 					            style: {
 					            	fontFamily: 'Varela Round',
 					            	color: '#FFFFFF'
 					            }
 					        },
+					        plotOptions: {
+				                area: {
+				                    marker: {
+				                        enabled: false
+				                    }
+				                }
+				            },
 					        title: {
 					            text: 'Words over time',
 					            style: {
@@ -194,8 +201,15 @@
 				    
 				    $(function () { 
 					    $('#highcharts').highcharts({
+					    	plotOptions: {
+				                area: {
+				                    marker: {
+				                        enabled: false
+				                    }
+				                }
+				            },
 					        chart: {
-					            type: 'line',
+					            type: 'area',
 					            backgroundColor: null,
 					            style: {
 					            	fontFamily: 'Varela Round',
