@@ -13,6 +13,7 @@
         <!-- build:css({.tmp,app}) styles/main.css -->
         <link href='http://fonts.googleapis.com/css?family=Varela+Round|Lato:300,400,900' rel='stylesheet' type='text/css'>
 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
@@ -27,8 +28,6 @@
         <script type="text/javascript" src="scripts/base.js"></script>
     </head>
     <body>
-        <div class="container-fluid">
-        </div>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -38,18 +37,21 @@
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 
-        <div id="main">
+        <div id="main" class="container-fluid">
             <div id="content">
                 <div class="cover">
-                    <div class="microphone large not-recording" style="display: none;"></div>
-                    <h1 style="display: none;">talk to me</h1>
+                    <i class="fa fa-microphone not-recording" style="display: none;"></i>
+                    <!-- <div class="microphone large not-recording" style="display: none;">
+                    </div> -->
+                    <div class="microphone-red" style="display: none;">
+                    </div>
+                    <h1 style="display: none;">click to record</h1>
                 </div>
 
                 <div id="speech-content-elements">
                     <textarea id="speech-page-content" name="pageContent"></textarea>
                     <div class="speech-content-mic speech-mic"/>
                 </div>
-
                 <div id="results">
                 </div>
             </div>

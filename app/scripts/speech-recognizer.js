@@ -24,7 +24,7 @@
 
         var startRecognition = function() {
             //$('.speech-content-mic').removeClass('speech-mic').addClass('speech-mic-works');
-            $('.microphone').removeClass('not-recording').addClass('recording')
+            $('.cover > i').removeClass('not-recording').addClass('recording')
             textArea.focus();
             recognition.start();
         };

@@ -40,24 +40,41 @@ body
   left: 0
   right: 0
   background-color: #FFFFFF
-  padding-top: 100px
+  padding-top: 120px
 
-.microphone
-  background: url("../images/microphone2.svg") no-repeat center
-  background-size: contain
-  height: 450px
+// .microphone
+//   // background: url("../images/microphone2.svg") no-repeat center
+//   background-size: contain
+//   height: 60%
 
-.microphone-small
-  background: url("../images/microphone2.svg") no-repeat top center
-  background-size: 40px 40px
-  height: 60px
+.cover i
+  font-size: 400px
+
+// .microphone-small
+//   background: url("../images/microphone2.svg") no-repeat top center
+//   background-size: 40px 40px
+//   height: 60px
+
+.cover i.recording
+  background-color: #F2604F
+  border-radius: 100px
+  color: #FFFFFF
+  width: 50px
+  padding: 5px
+
+.microphone-red
+  background: url("../images/microphone2-red.png") no-repeat top center
+
+.microphone image
+  max-width: 100%
+  max-height: 100%
 
 .cover > h1
   font-family: 'Varela Round'
   font-weight: 700
-  font-size: 60px
+  font-size: 64px
   color: #00BCB2
-  padding-top: 20px
+  padding-top: 30px
 
 #speech-content-elements
   margin: auto
@@ -74,6 +91,7 @@ body
   border: none
   resize: none
   font-size: 32px
+  font-family: 'Varela Round'
   line-height: 1.4
   background-color: #00BCB2
   color: #FFFFFF
@@ -84,6 +102,10 @@ textarea
   -webkit-appearance: none
   outline: none !important
   border: none
+
+#results
+  // background: url('../images/loading.gif') no-repeat center
+  height: 300px
 
 .speech-content-mic
   width: 25px

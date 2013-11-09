@@ -3,7 +3,7 @@
 	var alchemyKey = "e2490766ea3f66849fadc9a7b8d8b51af58d0a93";
 
 	$(document).ready(function() {
-		$('.microphone, .cover > h1').delay(500).fadeIn(1000);
+		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
 
 	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, do_something));
 
@@ -37,13 +37,17 @@
 	    $('.cover').click(slide_up);
 
 	    function slide_up() {
+	    	$('.cover').hide().fadeIn(300);
 	    	$('.cover').animate({
 	    		height: 60,
 	    		paddingTop: "5px"
 	    	}, 1000);
+	    	$('.cover > i').animate({
+	    		fontSize: "40px"
+	    	}, 1000);
 	    	$('.microphone.large').removeClass('large').animate({
+	    		height: "85%",
   				background: "url('../images/microphone2.svg') no-repeat top center",
-  				height: "50px",
 	    	}, 1000);
 	    	$('.cover h1').animate({
 	    		opacity: 0,
