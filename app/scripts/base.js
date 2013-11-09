@@ -1,6 +1,6 @@
 (function($) {
 
-	var alchemyKey = "c56875058078c4fb463c3f565ca3db1cdde1fc50";
+	var alchemyKey = "3d3c62a3f4f29c040d0639f7351fb790a002ddf0";
 
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
@@ -88,7 +88,22 @@
 	    $('#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
 
 	    function analysis() {
-	    	// List keywords
+	    	// List keywords 
+/*	    	var jqxhr2 = $.ajax({
+	    		url: "http://access.alchemyapi.com/calls/text/TextGetLanguage",
+	            jsonp: "jsonp",
+	            dataType: "jsonp",
+	            type: "POST",
+	            data: {
+	            	apikey: alchemyKey,
+	            	text: $('#speech-page-content')[0].textContent,
+	                outputMode: "json"
+	            },
+	            success: function (data) {
+	            	console.log(data);
+
+	            }
+	    }); */
 	        var jqxhr = $.ajax({
 	        	url: "https://access.alchemyapi.com/calls/text/TextGetRankedKeywords",
 	            jsonp: "jsonp",
@@ -103,7 +118,8 @@
 	            },
 	            success: function (data) {
 	            	console.log(data);
-	            	$("#results").html("");
+	            	$("#language").html("");
+	            	$("#language").append($("<div><strong>"+data.language+"</strong></div>"));
 	            	var len = data.keywords.length;
 	            	$("#results").html("");
 	            	var myData = new Array;
