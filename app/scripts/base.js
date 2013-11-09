@@ -7,9 +7,13 @@
 
 		var start_time;
 
-		$('#main').prepend('<div class="tipsy tipsy-n"></div>')
-		$('.tipsy').append('<div class="tipsy-arrow tipsy-arrow-n"></div><div class="tipsy-inner">HELLO</div>')
+		// $('<div id="mic-tipsy" class="tipsy tipsy-n"></div>').insertAfter('i.fa-microphone')
+		// $('#mic-tipsy').append('<div class="tipsy-arrow tipsy-arrow-n"></div><div class="tipsy-inner">Click microphone to record</div>')
 
+		// $('<div id="text-tipsy" class="tipsy tipsy-w"></div>').insertAfter('#speech-content-elements')
+		// $('#text-tipsy').append('<div class="tipsy-arrow tipsy-arrow-n"></div><div class="tipsy-inner">Or, enter text to begin</div>')
+
+		//$('.fa fa-microphone').tipsy({gravity: 'n'});
 		// FREQUENCY VIEW
 		function gotStream(stream)
 		{
@@ -303,7 +307,7 @@
 					var myNewChart = new Chart(ctx)
 					new Chart(ctx).Line(ndata);*/
 				    
-				  var fill = d3.scale.category20();
+				  var fill = d3.scale.category20c();
 				  
 				  $("#cloud").html("");
 				  
