@@ -9,6 +9,8 @@
 	        console.log('doing something');
 	    };
 
+	    $('textarea').autosize();
+
 	    $('.cover').click(slide_up);
 
 	    function slide_up() {
