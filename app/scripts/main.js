@@ -18,7 +18,4 @@ require(['app', 'jquery', 'bootstrap'], function (app, $) {
     console.log('Running jQuery %s', $().jquery);
 
     // Code goes here
-    $('textarea#speech-page-content').onchange(function () {
-        
-    });
 });
