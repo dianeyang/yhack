@@ -7,6 +7,9 @@
 
 		var start_time;
 
+		$('#main').prepend('<div class="tipsy tipsy-n"></div>')
+		$('.tipsy').append('<div class="tipsy-arrow tipsy-arrow-n"></div><div class="tipsy-inner">HELLO</div>')
+
 		// FREQUENCY VIEW
 		function gotStream(stream)
 		{
