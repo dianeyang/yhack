@@ -1,6 +1,6 @@
 (function($) {
 
-	var alchemyKey = "e2490766ea3f66849fadc9a7b8d8b51af58d0a93";
+	var alchemyKey = "c56875058078c4fb463c3f565ca3db1cdde1fc50";
 
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
@@ -120,23 +120,61 @@
 				    $(function () { 
 					    $('#highcharts').highcharts({
 					        chart: {
-					            type: 'line'
+					            type: 'line',
+					            backgroundColor: null,
+					            style: {
+					            	fontFamily: 'Varela Round',
+					            	color: '#FFFFFF'
+					            }
 					        },
 					        title: {
-					            text: 'Mood Over Time'
+					            text: 'Mood Over Time',
+					            style: {
+					            	fontFamily: 'Varela Round',
+					            	color: '#FFFFFF'
+					            }
 					        },
 					        xAxis: {
-					            categories: temp
+					            categories: temp,
+					            lineColor: '#FFFFFF',
+					            tickColor: '#FFFFFF',
+					            style: {
+					            	fontFamily: 'Varela Round',
+					            	color: '#FFFFFF'
+					            },
+					            labels: {
+							        style: {
+							            color: '#FFFFFF',
+							            fontFamily: 'Varela Round'
+							        }
+							    },
 					        },
 					        yAxis: {
+					        	lineColor: '#FFFFFF',
+					        	tickColor: '#FFFFFF',
 					            title: {
-					                text: 'Mood'
+					                text: 'Mood',
+					                style: {
+						            	fontFamily: 'Varela Round',
+						            	color: '#FFFFFF'
+						            }
+						        },
+						        labels: {
+						        	style: {
+					            		fontFamily: 'Varela Round',
+					            		color: '#FFFFFF'
+					            	}
 					            }
 					        },
 					        series: [{
 					            name: 'Time',
-					            data: myData
-					        }]
+					            data: myData,
+					            color: '#FFFFFF',
+					            style: {
+					            	color: '#FFFFFF',
+					            	fontFamily: 'Varela Round'
+					            }
+					        }],
 					    });
 					});
 				    /*
