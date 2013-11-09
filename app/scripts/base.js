@@ -5,11 +5,17 @@
 	$(document).ready(function() {
 		$('.cover > h1, .cover > i').delay(500).fadeIn(1000);
 
+		$('.cover > i')
+
+	    $('textarea#speech-page-content').bind('input propertychange', $.debounce(250, analysis));
 		var start_time;
 
 		$('i.fa-microphone, div#speech-content-elements').click(function() {
-			$('#instructions').animate({height:0, opacity: 0, display: 'none'}, 100);
+			$('#instructions').animate({height:0, opacity: 0.8, display: 'none'}, 100, function () {
+				$('#instructions').remove();
+			});
 			$('#speech-page-content').css({backgroundImage: 'none'});
+
 		});
 
 		// $('<div id="mic-tipsy" class="tipsy tipsy-n"></div>').insertAfter('i.fa-microphone')
