@@ -5,7 +5,7 @@
     "dependencies": {
         "express": "*",
         "request": "*",
-        "request-json": "*",
+        "request-json": "*"
     },
     "engines": {
         "node": ">=0.8.0"
