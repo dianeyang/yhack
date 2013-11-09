@@ -37,7 +37,6 @@
 	    $('.cover').click(slide_up);
 
 	    function slide_up() {
-	    	$('.cover').hide().fadeIn(300);
 	    	$('.cover').animate({
 	    		height: 60,
 	    		paddingTop: "5px"
