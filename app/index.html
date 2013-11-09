@@ -19,6 +19,8 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <canvas id="myChart" width="400" height="400"></canvas>
+        <script src="scripts/Chart.js"></script>
         <script src="scripts/d3.js"></script>
 		<script src="scripts/d3.layout.cloud.js"></script>
         <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
@@ -26,6 +28,7 @@
         <script type="text/javascript" src="scripts/textarea-helper.js"></script>
         <script type="text/javascript" src="scripts/speech-recognizer.js"></script>
         <script type="text/javascript" src="scripts/base.js"></script>
+        <script src="scripts/highcharts.js"></script>
 
     </head>
     <body>
@@ -51,9 +54,8 @@
                     <textarea id="speech-page-content" name="pageContent"></textarea>
                     <div class="speech-content-mic speech-mic"/>
                 </div>
-
-                <div id="sentiment">
-                </div>
+                
+                <div id="container" style="width:100%; height:500px;"></div>
                 
                 <div id="results">
                 </div>
